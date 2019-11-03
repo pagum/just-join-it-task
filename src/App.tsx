@@ -1,21 +1,31 @@
-import React from 'react';
-import './App.css';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
-import { Route, Switch, Router } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Router } from 'react-router-dom';
+
 import { history } from './history';
-import MainComponent from './MainComponent';
-import { Header } from './App.components';
+import MainComponent, { JobOffer } from './MainComponent';
 import { TopBar } from './TopBar/TopBar';
 
 const App = () => {
+  const [jobOffers, setJobOffers] = useState<JobOffer[] | undefined>(undefined);
+  const [hasError, setErrors] = useState(false);
+
+  async function fetchData() {
+    const res = await fetch('https://test.justjoin.it/offers');
+    res
+      .json()
+      .then(res => setJobOffers(res))
+      .catch(err => setErrors(err));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <Router history={history}>
       <>
         <TopBar />
-        <Switch>
-          <Route exact path="/" component={MainComponent} />
-        </Switch>
+        <MainComponent jobOffers={jobOffers} />
       </>
     </Router>
   );
