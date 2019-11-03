@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Router } from 'react-router-dom';
 
 import { history } from './history';
-import MainComponent, { JobOffer } from './MainComponent';
+import MainComponent from './MainComponent/MainComponent';
 import { TopBar } from './TopBar/TopBar';
+import { JobOffer } from './MainComponent/MainComponent.utils';
 
 const App = () => {
   const [jobOffers, setJobOffers] = useState<JobOffer[] | undefined>(undefined);

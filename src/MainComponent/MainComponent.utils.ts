@@ -1,4 +1,3 @@
-import React from 'react';
 export interface JobOffer {
   city: string;
   company_logo_url: string;
@@ -21,14 +20,10 @@ export interface JobOffer {
   street: string;
   title: string;
 }
-interface Skill {
+export interface Skill {
   name: string;
   level: number;
 }
-interface MainComponentProps {
+export interface MainComponentProps {
   jobOffers?: JobOffer[];
 }
-const MainComponent = ({ jobOffers }: MainComponentProps) => {
-  return <></>;
-};
-export default MainComponent;
