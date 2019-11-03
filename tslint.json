@@ -1,0 +1,8 @@
+{
+  "extends": "tslint:recommended",
+  "compilerOptions": {
+    "target": "es2016"
+  },
+
+  "include": ["src"]
+}
