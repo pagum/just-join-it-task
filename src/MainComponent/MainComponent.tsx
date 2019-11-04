@@ -1,15 +1,15 @@
 import React from 'react';
-import JobOfferCarousel from './Carousel';
+import JobOfferCarousel from './JobOfferCarousel';
 import { Paper } from '@material-ui/core';
 import { MainComponentProps } from './MainComponent.utils';
-import { JobOfferWrapperWrapper } from './MainComponent.components';
+import { JobOfferWrapper } from './MainComponent.components';
 
 const MainComponent = ({ jobOffers }: MainComponentProps) => {
   return (
     <>
-      <JobOfferWrapperWrapper>
+      <JobOfferWrapper>
         {jobOffers && <JobOfferCarousel jobOffers={jobOffers} />}
-      </JobOfferWrapperWrapper>
+      </JobOfferWrapper>
     </>
   );
 };
