@@ -5,7 +5,7 @@ export const TopBar = () => {
   return (
     <TopBarWrapper>
       <Header variant="h3">justjoin.it</Header>
-      <UserEmailContainer variant="h5">johndoe@mail.com</UserEmailContainer>
+      <UserEmailContainer variant="h5">johndoe@email.com</UserEmailContainer>
     </TopBarWrapper>
   );
 };

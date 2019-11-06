@@ -12,6 +12,7 @@ const App = () => {
 
   async function fetchData() {
     const res = await fetch('https://test.justjoin.it/offers');
+
     res
       .json()
       .then(res => setJobOffers(res))

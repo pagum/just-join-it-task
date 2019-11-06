@@ -8,13 +8,21 @@ import {
   RedButton,
 } from './MainComponent.components';
 
-export const DecisionBar = () => (
-  <DecisionBarContainer>
-    <RedButton>
-      <CloseIcon />
-    </RedButton>
-    <GreenButton>
-      <CheckIcon />
-    </GreenButton>
-  </DecisionBarContainer>
-);
+export const DecisionBar = () => {
+  const applyForJob = () => {
+    //the employee gets info that the user is interested
+  };
+  const rejectJob = () => {
+    //user moves to next offert
+  };
+  return (
+    <DecisionBarContainer>
+      <RedButton>
+        <CloseIcon onClick={rejectJob} />
+      </RedButton>
+      <GreenButton onClick={applyForJob}>
+        <CheckIcon />
+      </GreenButton>
+    </DecisionBarContainer>
+  );
+};

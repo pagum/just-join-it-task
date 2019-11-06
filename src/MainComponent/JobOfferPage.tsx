@@ -9,17 +9,20 @@ import {
   JobTitle,
   FieldContainer,
   TextWrapper,
+  CompanyLogo,
+  TitleWrapper,
 } from './MainComponent.components';
 import { DecisionBar } from './DecisionBar';
 import MapContainer from './MapContainer';
 import { SkillsPanel } from './SkillsPanel';
+import { OtherInfoPanel } from './OtherInfoPanel';
 
 interface SalaryProps {
   from: number;
   to: number;
   currency: string;
 }
-interface JobOfferPageProps {
+export interface JobOfferPageProps {
   item: JobOffer;
 }
 const countSalaryString = ({ from, to, currency }: SalaryProps) => (
@@ -28,9 +31,15 @@ const countSalaryString = ({ from, to, currency }: SalaryProps) => (
 export const JobOfferPage = ({ item }: JobOfferPageProps) => {
   const [isMapOpen, setMap] = useState(false);
   const showMap = () => setMap(!isMapOpen);
+  const goToCompanyWebSite = () => (window.location.href = item.company_url);
+
   return (
     <JobOfferContainer key={item.id}>
-      <JobTitle variant="h4">{item.title}</JobTitle>
+      <TitleWrapper>
+        {' '}
+        <CompanyLogo src={item.company_logo_url} />
+        <JobTitle variant="h4">{item.title}</JobTitle>
+      </TitleWrapper>
       <FieldContainer color="green">
         <MoneyIcon />
         {countSalaryString({
@@ -41,7 +50,9 @@ export const JobOfferPage = ({ item }: JobOfferPageProps) => {
       </FieldContainer>
       <FieldContainer>
         <ApartmentIcon />
-        <TextWrapper> {item.company_name} </TextWrapper>
+        <TextWrapper onClick={goToCompanyWebSite}>
+          {item.company_name}
+        </TextWrapper>
       </FieldContainer>
       <FieldContainer>
         <MapIcon onClick={showMap} />
@@ -57,6 +68,7 @@ export const JobOfferPage = ({ item }: JobOfferPageProps) => {
         />
       )}
       <SkillsPanel skills={item.skills} />
+      <OtherInfoPanel item={item} />
       <DecisionBar />
     </JobOfferContainer>
   );
