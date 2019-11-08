@@ -4,6 +4,7 @@ import 'react-animated-slider/build/horizontal.css';
 
 import { JobOffer } from './MainComponent.utils';
 import { JobOfferPage } from './JobOfferPage';
+import { DecisionBar } from './DecisionBar';
 
 interface JobOfferCarouselProps {
   jobOffers: JobOffer[];
@@ -12,7 +13,7 @@ interface JobOfferCarouselProps {
 const JobOfferCarousel = ({ jobOffers }: JobOfferCarouselProps) => (
   <Slider>
     {jobOffers.map(item => (
-      <div>
+      <div key={item.id}>
         <JobOfferPage item={item} />
       </div>
     ))}

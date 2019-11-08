@@ -1,14 +1,27 @@
 import React from 'react';
-import JobOfferCarousel from './JobOfferCarousel';
-import { Paper } from '@material-ui/core';
-import { MainComponentProps } from './MainComponent.utils';
-import { JobOfferWrapper } from './MainComponent.components';
 
-const MainComponent = ({ jobOffers }: MainComponentProps) => {
+import JobOfferCarousel from './JobOfferCarousel';
+import { MainComponentProps } from './MainComponent.utils';
+import { JobOfferWrapper, StyledProgress } from './MainComponent.components';
+import { DecisionBar } from './DecisionBar';
+
+const MainComponent = ({ jobOffers, isLoading }: MainComponentProps) => {
   return (
     <>
       <JobOfferWrapper>
-        {jobOffers && <JobOfferCarousel jobOffers={jobOffers} />}
+        {isLoading ? (
+          <StyledProgress color="secondary" />
+        ) : (
+          <>
+            {jobOffers &&
+              (jobOffers!.length > 0 ? (
+                <JobOfferCarousel jobOffers={jobOffers} />
+              ) : (
+                <div>no job for you now, sorry</div>
+              ))}
+            <DecisionBar />
+          </>
+        )}
       </JobOfferWrapper>
     </>
   );

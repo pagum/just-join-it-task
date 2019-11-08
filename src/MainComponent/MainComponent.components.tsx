@@ -1,10 +1,15 @@
 import styled from 'styled-components';
-import { Typography, Paper, Fab } from '@material-ui/core';
+import { Typography, Paper, Fab, CircularProgress } from '@material-ui/core';
 
+export const StyledProgress = styled(CircularProgress)`
+  align-self: center;
+`;
 export const JobOfferWrapper = styled(Paper)`
   margin: 50px 100px;
-  padding: 50px 20px;
+  padding: 20px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const JobOfferContainer = styled.div`
@@ -23,7 +28,7 @@ export const TitleWrapper = styled.div`
   padding-bottom: 15px;
 `;
 export const CompanyLogo = styled.img`
-  width: 100px;
+  max-width: 50px;
   padding-right: 5px;
 `;
 
@@ -82,5 +87,4 @@ export const Row = styled.div`
 export const ContainerTitle = styled(Typography)`
 align-self:center
   color:#37474f
-  padding :10px
 `;

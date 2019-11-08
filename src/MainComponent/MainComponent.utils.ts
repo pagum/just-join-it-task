@@ -26,4 +26,5 @@ export interface Skill {
 }
 export interface MainComponentProps {
   jobOffers?: JobOffer[];
+  isLoading: boolean;
 }

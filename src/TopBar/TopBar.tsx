@@ -1,10 +1,16 @@
 import React from 'react';
 import { Header, TopBarWrapper, UserEmailContainer } from './TopBar.components';
+import { JobFilter } from './JobFilter';
 
-export const TopBar = () => {
+interface TopBarProps {
+  isLoading: boolean;
+}
+
+export const TopBar = ({ isLoading }: TopBarProps) => {
   return (
     <TopBarWrapper>
-      <Header variant="h3">justjoin.it</Header>
+      <Header variant="h3">minijustjoin.it</Header>
+      {!isLoading && <JobFilter />}
       <UserEmailContainer variant="h5">johndoe@email.com</UserEmailContainer>
     </TopBarWrapper>
   );

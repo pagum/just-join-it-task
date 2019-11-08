@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 const apiKey = 'AIzaSyDNsG2YzMNq1qbic-0Law4LYqk8ggLFfCk';
 
-const Zsss = styled(Map)`
+const StypedMap = styled(Map)`
   z-index: 100 !important;
 `;
 
 export const MapContainer = (props: any) => (
-  <Zsss
+  <StypedMap
     google={props.google}
     zoom={14}
     initialCenter={{ lat: props.latitude, lng: props.longitude }}
@@ -17,7 +17,7 @@ export const MapContainer = (props: any) => (
       position={{ lat: props.latitude, lng: props.longitude }}
       title={props.street}
     />
-  </Zsss>
+  </StypedMap>
 );
 
 export const LoadingPanel = () => <div>Loading...</div>;

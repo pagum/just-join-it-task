@@ -69,7 +69,6 @@ export const JobOfferPage = ({ item }: JobOfferPageProps) => {
       )}
       <SkillsPanel skills={item.skills} />
       <OtherInfoPanel item={item} />
-      <DecisionBar />
     </JobOfferContainer>
   );
 };
