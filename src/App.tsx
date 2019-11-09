@@ -19,8 +19,9 @@ const App = () => {
       res.json().then(res => {
         const parsed = queryString.parse(window.location.search);
         setJobOffers(res);
+        sessionStorage.setItem('jobs', JSON.stringify(res));
         setLoading(false);
-        parsed && filterJobOffers(res);
+        parsed.technology && filterJobOffers(res);
       }),
     );
   }
@@ -31,16 +32,24 @@ const App = () => {
 
     const doesContainJobOffer = (offer: JobOffer) => {
       const skillsArray = offer.skills.map(skill => skill.name.toLowerCase());
-      const filteredSkills = skillsArray.filter(item =>
-        item.includes((tech as String).toLowerCase()),
-      );
+      const regex = /^java($|ee|\s)/gi;
+      const filteredSkills = skillsArray.filter(item => {
+        return tech === 'java'
+          ? item.match(regex)
+          : item.includes((tech as String).toLowerCase());
+      });
       return filteredSkills.length > 0;
     };
+
     const filteredOffers = jobs!.filter(offer => doesContainJobOffer(offer));
     setJobOffers(filteredOffers);
   };
   useEffect(() => {
-    fetchData();
+    const parsed = queryString.parse(window.location.search);
+    sessionStorage.getItem('jobs')
+      ? parsed.technology &&
+        filterJobOffers(JSON.parse(sessionStorage.getItem('jobs')!))
+      : fetchData();
   }, []);
 
   return (
