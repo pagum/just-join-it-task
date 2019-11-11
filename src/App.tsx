@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 import queryString from 'query-string';
-import * as R from 'ramda';
 
 import { history } from './history';
 import MainComponent from './MainComponent/MainComponent';
 import { TopBar } from './TopBar/TopBar';
 import { JobOffer } from './MainComponent/MainComponent.utils';
-import JobOfferCarousel from './MainComponent/JobOfferCarousel';
-import map from 'ramda/es/map';
 
 const App = () => {
   const [jobOffers, setJobOffers] = useState<JobOffer[] | undefined>(undefined);
