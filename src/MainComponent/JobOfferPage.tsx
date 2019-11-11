@@ -12,7 +12,6 @@ import {
   CompanyLogo,
   TitleWrapper,
 } from './MainComponent.components';
-import { DecisionBar } from './DecisionBar';
 import MapContainer from './MapContainer';
 import { SkillsPanel } from './SkillsPanel';
 import { OtherInfoPanel } from './OtherInfoPanel';
@@ -36,7 +35,6 @@ export const JobOfferPage = ({ item }: JobOfferPageProps) => {
   return (
     <JobOfferContainer key={item.id}>
       <TitleWrapper>
-        {' '}
         <CompanyLogo src={item.company_logo_url} />
         <JobTitle variant="h4">{item.title}</JobTitle>
       </TitleWrapper>

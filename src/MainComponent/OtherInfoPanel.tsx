@@ -4,10 +4,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import HeightIcon from '@material-ui/icons/Height';
 import TodayIcon from '@material-ui/icons/Today';
 
-import { Skill } from './MainComponent.utils';
 import {
-  SkillsWrapper,
-  TextWrapper,
   SkillsContainer,
   ContainerTitle,
   OtherInfoWrapper,
@@ -44,8 +41,7 @@ export const OtherInfoPanel = ({ item }: JobOfferPageProps) => {
         </InfoWrapper>
         <InfoWrapper>
           <Row>
-            {' '}
-            <TodayIcon />{' '}
+            <TodayIcon />
           </Row>
           <Row> Added </Row>
           <Row> {new Date(item.published_at).toLocaleDateString()} </Row>
